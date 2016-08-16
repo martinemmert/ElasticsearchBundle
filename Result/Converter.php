@@ -95,6 +95,9 @@ class Converter
                             break;
                         }
                         if (is_numeric($value) && (int)$value == $value) {
+                            if (strlen($value) > 10) {
+                                $value = round($value / 1000);
+                            }
                             $time = $value;
                         } else {
                             $time = strtotime($value);
